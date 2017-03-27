@@ -8,6 +8,7 @@ The goal of this project is to train a deep neural network with a subset of Germ
 The data comes into 3 sets, training set, validation set and testing set. The basic statistics about the data set are summarized below. 
 
 * The size of training set is 34799
+* The size of training set is 4410
 * The size of test set is 12630
 * The shape of a traffic sign image is 32x32x3
 * The number of unique classes/labels in the data set is 43
@@ -39,8 +40,8 @@ In addition to preprocessing, jittered images based on original ones (grayscale 
                 
 <img src="./results_images/train_set_augmented_image_sample.png " alt="blur image" width=800 height="whatever">
 
-####3. Training  and validation data split [6th code cell]
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by function `sklearn.model_selection.train_test_split()`, and set 80% of augmented images as training set, and 20% of that as validation set.
+####3. Validation data
+Although training data is perturbed and augmented, validation data remains the same after grayscale conversion and normalization. The validation set size is 4410, about 12.7% or 1/8 of original unaugmented training set
 
 
 ####4. Model architecture [8th code cell]
@@ -100,7 +101,7 @@ Here are 8 German traffic signs that I found on the web
 
 The raw images were cropped to make the signs sitting in center. Since the images vary in size, they are resized to be 32x32 before being converted to gray scale and normalized.
 
-####2. Model prediction [15th code cell]
+####2. Model prediction [16th code cell]
 
 The original traffic signs with predicted labels are shown below:
 <img src="./results_images/web_images_recognition.png " alt="blur image" width=1000 height="whatever">
@@ -119,7 +120,7 @@ The model was able to correctly guess 7 of the 8 traffic signs, which gives an a
 |8| Keep right    			| Keep right					|0.999882|
 
 
-####3. Further analysis [16th code cell]
+####3. Further analysis [18th code cell]
 
 For these signs being predicted correctly, the prediction probability are quite high (above 98%), indicating high level prediction confidence. While for image #6, which is incorrectely predicted, the probability for top 1 prediction is only 39%. I further printed out top 5 predictions with softmax probability for each image. The top 5 prediction pie-chart for image #6 is shown below. 
 
